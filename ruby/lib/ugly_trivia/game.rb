@@ -22,6 +22,23 @@ module UglyTrivia
       end
     end
 
+    def play
+      not_a_winner = false
+      begin
+
+        roll(rand(5) + 1)
+
+        if rand(9) == 7
+          not_a_winner = wrong_answer
+        else
+          not_a_winner = was_correctly_answered
+        end
+
+
+
+      end while not_a_winner
+    end
+
     def create_rock_question(index)
       "Rock Question #{index}"
     end
@@ -38,8 +55,6 @@ module UglyTrivia
 
       puts "#{player_name} was added"
       puts "They are player number #{@players.length}"
-
-      true
     end
 
     def how_many_players
